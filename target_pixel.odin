@@ -24,6 +24,11 @@ main :: proc() {
     TITLE : cstring : "Target Pixel"
     
     rl.SetTraceLogLevel(rl.TraceLogLevel.ERROR)
+
+    flags : rl.ConfigFlags
+    flags = {.WINDOW_TOPMOST} // .VSYNC_HINT for auto monitor dependent refresh
+    rl.SetConfigFlags(flags)
+
     rl.InitWindow(WIDTH, HEIGHT, TITLE)
 
     monitor := rl.GetCurrentMonitor()
